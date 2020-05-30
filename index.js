@@ -2,6 +2,8 @@ const request = require('request');
 const fs = require('fs');
 const { register, listen } = require('push-receiver');
 
+require('dotenv').config()
+
 function readCredentials(){
   return JSON.parse(fs.readFileSync('credentials.json', 'utf-8'));
 }
@@ -17,7 +19,7 @@ async function newCredentials(){
 }
 
 function onNotification({ notification, persistentIds }) {
-  request.post('http://127.0.0.1:5000/receive',
+  request.post(`http://127.0.0.1:${process.env.PORT}/receive`,
   {
     json: {
       message: notification.notification.body

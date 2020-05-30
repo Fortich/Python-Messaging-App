@@ -6,9 +6,9 @@
 </head>
  
 <div id="wrapper">
+
     <div id="menu">
-        <p class="welcome">Welcome, <b></b></p>
-        <p class="logout"><a id="exit" href="#">Exit Chat</a></p>
+        <p class="welcome">Welcome,  <input name="username" type="text" id="username" size="10" /></p>
         <div style="clear:both"></div>
     </div>
      
@@ -31,8 +31,11 @@
         console.log(message)
     });
     $("#submitmsg").click(function(){	
-		var clientmsg = $("#usermsg").val();
-		socket.emit('message', {data: clientmsg});
+        var client = $("#username").val();
+        var clientmsg = $("#usermsg").val();
+        var msg = `${client}: ${clientmsg}`;
+        socket.emit('message', msg);
+        $("#usermsg").val('');
 		return false;
 	});
 </script>

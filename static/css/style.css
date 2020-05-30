@@ -42,6 +42,14 @@ a {
 #usermsg {
     width:395px;
     border:1px solid #ACD8F0; }
+
+#username {
+    width:395px;
+    border:1px solid #ACD8F0; }
+
+#userdst {
+    width:395px;
+    border:1px solid #ACD8F0; }
   
 #submit { width: 60px; }
   
