@@ -1,3 +1,4 @@
+const request = require('request');
 const fs = require('fs');
 const { register, listen } = require('push-receiver');
 
@@ -16,7 +17,19 @@ async function newCredentials(){
 }
 
 function onNotification({ notification, persistentIds }) {
-  console.log(notification)
+  request.post('http://127.0.0.1:5000/receive',
+  {
+    json: {
+      message: notification.notification.body
+    }
+  }, (error, res, body) => {
+    if (error) {
+      console.error(error)
+      return
+    }
+    console.log(`statusCode: ${res.statusCode}`)
+    console.log(body)
+  });
 }
 
 async function getNotif(credentials){
