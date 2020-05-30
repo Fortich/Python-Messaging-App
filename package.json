@@ -1,0 +1,9 @@
+{
+  "name": "miniproyecto-python",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "push-receiver": "^2.1.0"
+  }
+}
